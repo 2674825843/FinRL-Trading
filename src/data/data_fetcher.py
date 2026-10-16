@@ -589,7 +589,7 @@ class FMPFetcher(BaseDataFetcher, DataSource):
                 # 9,10,11
                 return pd.Timestamp(year=year, month=12, day=1)
 
-        prices = self.get_price_data(tickers, extended_start_date, extended_end_date)
+            prices = self.get_price_data(tickers, extended_start_date, extended_end_date)
 
         for ticker in tickers_to_fetch if tickers_to_fetch else []:
             try:

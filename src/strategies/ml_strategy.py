@@ -81,6 +81,7 @@ class MLStockSelectionStrategy(BaseStrategy):
             config: Strategy configuration
         """
         super().__init__(config)
+        self.logger = logging.getLogger(__name__)
 
     def apply_risk_limits(self, weights_df: pd.DataFrame) -> pd.DataFrame:
         """Apply position and sector concentration limits and renormalize.

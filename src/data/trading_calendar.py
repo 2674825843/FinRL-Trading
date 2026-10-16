@@ -11,7 +11,6 @@ from typing import List, Set
 from datetime import datetime, date
 import pandas as pd
 from functools import lru_cache
-import tzlocal
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +48,7 @@ def _cached_trading_days(exchange: str, start_date: str, end_date: str) -> tuple
     tzinfo = None
     try:
         # pandas >= 1.1: dt.now().astimezone().tzinfo.zone (linux/mac), or tzlocal.get_localzone_name() if installed
+        import tzlocal
         tzinfo = tzlocal.get_localzone_name()
     except Exception:
         try:
